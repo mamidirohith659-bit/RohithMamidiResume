@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Rohith Mamidi Portfolio</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body{
+            background:#f4f4f4;
+            color:#333;
+        }
+
+        header{
+            background:#0d6efd;
+            color:white;
+            padding:40px 20px;
+            text-align:center;
+        }
+
+        header h1{
+            font-size:40px;
+        }
+
+        header p{
+            margin-top:10px;
+            font-size:18px;
+        }
+
+        nav{
+            background:#222;
+            padding:15px;
+            text-align:center;
+        }
+
+        nav a{
+            color:white;
+            text-decoration:none;
+            margin:0 15px;
+            font-size:18px;
+        }
+
+        nav a:hover{
+            color:#0d6efd;
+        }
+
+        .theme-btn{
+            background:#222;
+            color:white;
+            border:none;
+            padding:10px 15px;
+            border-radius:5px;
+            cursor:pointer;
+            margin:0 5px;
+        }
+
+        .theme-btn:hover{
+            opacity:0.8;
+        }
+
+        section{
+            padding:50px 10%;
+        }
+
+        .card{
+            background:white;
+            padding:25px;
+            border-radius:10px;
+            margin-bottom:30px;
+            box-shadow:0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h2{
+            color:#0d6efd;
+            margin-bottom:20px;
+        }
+
+        ul li{
+            margin-bottom:10px;
+        }
+
+        .skills{
+            display:flex;
+            flex-wrap:wrap;
+            gap:15px;
+        }
+
+        .skill{
+            background:#0d6efd;
+            color:white;
+            padding:10px 20px;
+            border-radius:20px;
+        }
+
+        .project{
+            margin-bottom:20px;
+        }
+
+        button{
+            background:#0d6efd;
+            color:white;
+            border:none;
+            padding:12px 20px;
+            border-radius:5px;
+            cursor:pointer;
+            margin-top:15px;
+        }
+
+        button:hover{
+            background:#084298;
+        }
+
+        footer{
+            background:#222;
+            color:white;
+            text-align:center;
+            padding:20px;
+        }
+
+        @media(max-width:768px){
+            header h1{
+                font-size:30px;
+            }
+
+            header p{
+                font-size:16px;
+            }
+
+            header img{
+                width:120px;
+                height:120px;
+            }
+
+            section{
+                padding:30px 5%;
+            }
+
+            nav a{
+                display:block;
+                margin:10px 0;
+            }
+
+            .theme-btn{
+                display:block;
+                width:100%;
+                margin:5px 0;
+                padding:12px;
+            }
+
+            #theme-toggle{
+                display:block;
+                width:100%;
+                margin:5px 0;
+                padding:12px;
+            }
+
+            .skills{
+                justify-content:center;
+            }
+
+            .skill{
+                font-size:14px;
+                padding:8px 16px;
+            }
+
+            button{
+                width:100%;
+                padding:15px;
+            }
+        }
+
+        @media(max-width:480px){
+            header{
+                padding:30px 15px;
+            }
+
+            header h1{
+                font-size:24px;
+            }
+
+            header p{
+                font-size:14px;
+            }
+
+            header img{
+                width:100px;
+                height:100px;
+            }
+
+            section{
+                padding:20px 5%;
+            }
+
+            .card{
+                padding:20px;
+            }
+
+            h2{
+                font-size:24px;
+            }
+
+            ul li{
+                font-size:14px;
+            }
+
+            .project h3{
+                font-size:18px;
+            }
+
+            footer{
+                padding:15px;
+                font-size:14px;
+            }
+        }
+
+        /* Dark Mode */
+        body.dark-mode {
+            background: #121212;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode header {
+            background: #1e3a8a;
+        }
+
+        body.dark-mode nav {
+            background: #1f2937;
+        }
+
+        body.dark-mode .card {
+            background: #1f2937;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode h2 {
+            color: #3b82f6;
+        }
+
+        body.dark-mode .skill {
+            background: #3b82f6;
+        }
+
+        body.dark-mode button {
+            background: #3b82f6;
+        }
+
+        body.dark-mode button:hover {
+            background: #1e40af;
+        }
+
+        body.dark-mode footer {
+            background: #1f2937;
+        }
+
+        /* Color Themes */
+        body.theme-green header {
+            background: #059669;
+        }
+
+        body.theme-green nav {
+            background: #064e3b;
+        }
+
+        body.theme-green h2 {
+            color: #10b981;
+        }
+
+        body.theme-green .skill {
+            background: #10b981;
+        }
+
+        body.theme-green button {
+            background: #10b981;
+        }
+
+        body.theme-green button:hover {
+            background: #047857;
+        }
+
+        body.theme-green nav a:hover {
+            color: #10b981;
+        }
+
+        body.theme-red header {
+            background: #dc2626;
+        }
+
+        body.theme-red nav {
+            background: #7f1d1d;
+        }
+
+        body.theme-red h2 {
+            color: #ef4444;
+        }
+
+        body.theme-red .skill {
+            background: #ef4444;
+        }
+
+        body.theme-red button {
+            background: #ef4444;
+        }
+
+        body.theme-red button:hover {
+            background: #b91c1c;
+        }
+
+        body.theme-red nav a:hover {
+            color: #ef4444;
+        }
+
+        body.theme-purple header {
+            background: #7c3aed;
+        }
+
+        body.theme-purple nav {
+            background: #581c87;
+        }
+
+        body.theme-purple h2 {
+            color: #a855f7;
+        }
+
+        body.theme-purple .skill {
+            background: #a855f7;
+        }
+
+        body.theme-purple button {
+            background: #a855f7;
+        }
+
+        body.theme-purple button:hover {
+            background: #6d28d9;
+        }
+
+        body.theme-purple nav a:hover {
+            color: #a855f7;
+        }
+
+        body.theme-orange header {
+            background: #ea580c;
+        }
+
+        body.theme-orange nav {
+            background: #9a3412;
+        }
+
+        body.theme-orange h2 {
+            color: #f97316;
+        }
+
+        body.theme-orange .skill {
+            background: #f97316;
+        }
+
+        body.theme-orange button {
+            background: #f97316;
+        }
+
+        body.theme-orange button:hover {
+            background: #c2410c;
+        }
+
+        body.theme-orange nav a:hover {
+            color: #f97316;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        header {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        header img {
+            animation: bounceIn 1s ease-out 0.3s both;
+        }
+
+        nav {
+            animation: slideInLeft 1s ease-out 0.5s both;
+        }
+
+        section {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        section:nth-child(1) { animation-delay: 0.2s; }
+        section:nth-child(2) { animation-delay: 0.4s; }
+        section:nth-child(3) { animation-delay: 0.6s; }
+        section:nth-child(4) { animation-delay: 0.8s; }
+
+        .card {
+            animation: bounceIn 1s ease-out;
+        }
+
+        .skill {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .skill:nth-child(1) { animation-delay: 0.1s; }
+        .skill:nth-child(2) { animation-delay: 0.2s; }
+        .skill:nth-child(3) { animation-delay: 0.3s; }
+        .skill:nth-child(4) { animation-delay: 0.4s; }
+        .skill:nth-child(5) { animation-delay: 0.5s; }
+        .skill:nth-child(6) { animation-delay: 0.6s; }
+        .skill:nth-child(7) { animation-delay: 0.7s; }
+        .skill:nth-child(8) { animation-delay: 0.8s; }
+
+        button:hover {
+            animation: pulse 0.6s infinite;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="./WhatsApp Image 2026-04-07 at 2.45.46 PM.jpeg" alt="Rohith Mamidi" style="width:250px; height:250px; border-radius:30%; margin-bottom:20px; border:5px solid white; box-shadow:0 0 10px rgba(0,0,0,0.2);">
+        <h1>Rohith Mamidi</h1>
+        <p> Python Learner | Java Learner</p>
+    </header>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <div style="display:inline-block; margin-left:20px;">
+            <button class="theme-btn" data-theme="blue">Blue</button>
+            <button class="theme-btn" data-theme="green">Green</button>
+            <button class="theme-btn" data-theme="red">Red</button>
+            <button class="theme-btn" data-theme="purple">Purple</button>
+            <button class="theme-btn" data-theme="orange">Orange</button>
+            <button id="theme-toggle">Dark Mode</button>
+        </div>
+    </nav>
+
+    <section id="about">
+        <div class="card">
+            <h2>About Me</h2>
+            <p>
+                Hello! My name is Rohith Mamidi. I am currently pursuing B.Tech 
+                and I have successfully completed my 1st year. I am passionate 
+                about technology and software development. Currently, I am learning 
+                Python, Java, HTML, CSS, JavaScript, and Full Stack Development.
+                I enjoy building websites and improving my programming skills by 
+                working on real-time projects and mini applications.
+            </p>
+
+            <button onclick="showMessage()">Know More</button>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="card">
+            <h2>Education</h2>
+
+            <ul>
+                <li>
+                    <strong>B.Tech</strong> - Currently Pursuing (1st Year Completed)
+                </li>
+
+                <li>
+                    <strong>Intermediate</strong> - MPC/Computer Science
+                </li>
+
+                <li>
+                    <strong>Schooling</strong> - Completed SSC
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="card">
+            <h2>Technical Skills</h2>
+
+           
+                <div class="skill">JavaScript</div>
+                <div class="skill">Python</div>
+                <div class="skill">Java</div>
+                
+                <div class="skill">GitHub</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="card">
+            <h2>Contact</h2>
+
+            <p><strong>Email:</strong> mamidirohith659@gmail.com</p>
+            <p><strong>Phone:</strong> 8143727780</p>
+            <p><strong>Location:</strong> Metpally</p>
+
+            <br>
+
+            <p>
+                I am actively learning new technologies and looking forward to 
+                opportunities where I can improve my skills and contribute to 
+                innovative projects.
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Rohith Mamidi | Portfolio Website</p>
+    </footer>
+
+    <script>
+        function showMessage(){
+            alert("Thank you for visiting my portfolio website!");
+        }
+
+        // Dark Mode Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            themeToggle.textContent = document.body.classList.contains('dark-mode') ? 'Light Mode' : 'Dark Mode';
+        });
+
+        // Color Theme Toggle
+        const themeBtns = document.querySelectorAll('.theme-btn');
+        themeBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove existing theme classes
+                document.body.classList.remove('theme-blue', 'theme-green', 'theme-red');
+                // Add new theme
+                const theme = btn.getAttribute('data-theme');
+                if (theme !== 'blue') { // blue is default
+                    document.body.classList.add('theme-' + theme);
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
